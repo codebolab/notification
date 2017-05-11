@@ -1,0 +1,27 @@
+<div class="bg"></div>
+<div class="notification " ng-show="shouldShowMessage"
+     ng-class="{_green: data.type=='success',
+                _yellow: data.type=='warning',
+                _red: data.type=='error',
+                _left: data.positionHorizontal == 'left',
+                _right: data.positionHorizontal == 'right',
+                _bottom: data.positionVertical == 'bottom',
+                _top: data.positionVertical == 'top'}">
+  <div class="icon">
+    <i class="fa " 
+       ng-class="{'fa-info-circle': data.type=='info',
+                  'fa-check-circle': data.type=='success',
+                  'fa-exclamation-triangle': data.type=='warning',
+                  'fa-exclamation-circle': data.type=='error'}"
+                  aria-hidden="true"></i>
+  </div>
+  <div class="message m_relative">
+    <span class="m_absolute notification_close" ng-click="hideMessage()">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </span>
+    <p class="message_text">
+    <span class="message_type">{{data.valueType[data.type]}}: </span>
+      {{data.message_text}}
+    </p>
+  </div>
+</div>

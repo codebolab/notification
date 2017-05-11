@@ -1,0 +1,81 @@
+.notification{
+  width: 310px;
+  position:fixed;
+  background: rgba(0,0,0,0.85);
+  padding: 15px 20px 10px;
+  color: white !important;
+  z-index: 1101;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  &._left{left: 70px;}
+  &._right{right: 20px;}
+  &._bottom{bottom:0px;}
+  &._top{top:52px;}
+  &._green{
+    background: rgba(#00a08f,0.85);
+  }
+  &._yellow{
+    background: rgba(#fba01f,0.85);
+  }
+  &._red{
+    background: rgba(#ff5c5c,0.85);
+  }
+  .icon, .message{
+    display: inline-block;
+    vertical-align: top;
+  }
+  .icon{
+    width: 30px;
+    height: 30px;
+    font-size: 2.5rem;    
+  }
+  .message{
+    width: 230px;
+    &_type{
+      font-family: 'futura';
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+  }
+  &_close{
+    top:-10px;
+    right:-15px;
+    opacity:0.5;
+    &:hover{
+     opacity: 1;
+     cursor: pointer;
+    }
+  }
+}
+
+
+//ANIMATION:
+
+.notification.ng-hide-add, .notification.ng-hide-remove {
+    transition: all ease-out .3s;
+    &._bottom{transform-origin: 75% 100%;}
+    &._top{transform-origin: 50% 0%;}
+}
+.notification.ng-hide-remove {
+    opacity: 0;
+    &._bottom{
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    }
+    &._top{
+      transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+    }
+}
+.notification.ng-hide-remove.ng-hide-remove-active,
+.notification.ng-hide-add{
+  transform: perspective(400px) rotate3d(1, 0, 0, 0deg);
+  opacity: 1;
+}
+.notification.ng-hide-add.ng-hide-add-active {
+    opacity: 0;
+    &._bottom{
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    }
+    &._top{
+      transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+    }
+}
+
